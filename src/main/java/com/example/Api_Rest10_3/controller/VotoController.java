@@ -35,7 +35,22 @@ public class VotoController {
 
     @GetMapping("/votos")
     public ResponseEntity<List<Voto>> getAllVotos(){
+        
         List<Voto> votos = votoRepository.findAll();
         return ResponseEntity.ok(votos);
+    }
+    
+    @GetMapping("/votos/orden")
+    public ResponseEntity<List<Voto>> getAllVotosOrden(){
+        
+        List<Voto> votos = votoRepository.findAllByOrderByVotosDesc();
+        return ResponseEntity.ok(votos);
+    }
+    
+    @GetMapping("/votos/ganador")
+    public ResponseEntity<String> getGanador(){
+        String ganador = "AYUDAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+        //Seleccionar ganador
+        return ResponseEntity.ok(ganador);
     }
 }
